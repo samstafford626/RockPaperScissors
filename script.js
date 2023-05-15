@@ -1,19 +1,26 @@
 let randomNum = 0;
     
-let playerSelection = prompt("Maker your choice! (Rock, Paper, or Scissors)").toLowerCase()
-let computerChoice = 'scissors';
+let playerSelection = '';
+let computerSelection = '';
+let result = '';
 
-let result = testAnswer();
+// Prompt user for choice and generate computer choice
+playerSelection = prompt("Maker your choice! (Rock, Paper, or Scissors)").toLowerCase();
+computerSelection = 'rock' //getComputerChoice();
 
-console.log("You played " + playerSelection + " and the computer played " + computerChoice);
-console.log(result);
+// Test that choice and display a message
+
+console.log(testAnswer())
+
+// Loop back through and track wins and losses
+// Update the message and ticker with wins and losses
 
 function testAnswer() {
-    if (playerSelection === computerChoice) {
-        return "It's a draw, try again!"
-    } else if (playerSelection === 'rock' && computerChoice === 'paper' || playerSelection === 'paper' && computerChoice === 'scissors' || playerSelection === 'scissors' && computerChoice === 'rock') {
+    if (playerSelection === computerSelection) {
+        return "You both chose " + playerSelection + ", try again!"
+    } else if (playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissors' || playerSelection === 'scissors' && computerSelection === 'rock') {
         return "You suck and therefore you lose, try again.."
-    } else if (playerSelection ==='rock' && computerChoice ==='scissors' || playerSelection ==='paper' && computerChoice ==='rock' || playerSelection ==='scissors' && computerChoice ==='paper') {
+    } else if (playerSelection ==='rock' && computerSelection ==='scissors' || playerSelection ==='paper' && computerSelection ==='rock' || playerSelection ==='scissors' && computerSelection ==='paper') {
         return "You have hella rizz, keep it up"
     }
 }
