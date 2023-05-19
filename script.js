@@ -27,19 +27,27 @@ function playRound(e) {
         lossesTotal++;
         losses.innerText = `Losses: ${lossesTotal}`;
         memo.innerText = "You suck and therefore you lose, try again..";
+        checkWin();
     } else if (playerSelection ==='rock' && computerSelection ==='scissors' || playerSelection ==='paper' && computerSelection ==='rock' || playerSelection ==='scissors' && computerSelection ==='paper') {
         winsTotal++;
         wins.innerText = `Wins: ${winsTotal}`;
         memo.innerText = "You have hella rizz, keep it up";
+        checkWin();
     }
 }
 
 // if wins or losses equals 5, stop event listener, display message in memo
-if (winsTotal === 1 || lossesTotal === 1) {
-    buttons.forEach(btn => btn.removeEventListener('click',playRound));
-    console.log('game over')
-} //this does NOT work, needs fix. Try calling a function checkWin after
-// winsTotal or lossesTotal is ran
+function checkWin() {
+    if (winsTotal === 3) {
+        buttons.forEach(btn => btn.removeEventListener('click',playRound));
+        memo.innerText = "Great fight out there, you are the victor!"
+    } else if (lossesTotal === 3) {
+        buttons.forEach(btn => btn.removeEventListener('click',playRound));
+        memo.innerText = "Good effort, we'll get'em next time \n -Soap"
+    }
+
+}
+
 
 
 
