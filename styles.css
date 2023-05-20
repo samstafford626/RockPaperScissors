@@ -2,36 +2,100 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    background-color: antiquewhite;
-    padding: 1vh 1vw;
+    font-family: 'Syne', sans-serif; /*Weight (400-800) */
 }
 
 body {
-    width: 98vw;
-    height: 98vh;
-    background-color: aquamarine;
-    padding: 10%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container, .container, .results {
+  border: 1px solid black;
+}
+
+.header {
+  color: #F7EDD8;
+  font-weight: 800;
+  font-size: 48px;
+  text-align: center;
+}
+
+.header-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ED7A56;
+  gap: 15px;
+}
+
+.memo-container {
+  min-height: 65px;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 40px;
+}
+
+.memo-container, .memo-container:after, .memo {
+  transition-duration: 2s;
+}
+
+.memo-container:after {
+  content: '';
+  position: absolute;
+  min-width: 100%;
+  height: 65px;
+  background-color: #023342;
+  border-radius: 32.5px;
+  box-shadow: 10px 10px 5px #BD4A2A;
+  z-index: 2;
+}
+
+.memo-container:before {
+  content: '';
+  width: 120px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #023342;
+  position: absolute;
+  box-shadow: 10px 10px 5px #BD4A2A;
+  z-index: 1;
+}
+
+.circle {
+  content: '';
+  width: 120px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #023342;
+  position: absolute;
+  z-index: 3;
 }
 
 .memo {
-    width: 100%;
-    height: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: aqua;
+  color: #F7EDD8;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  z-index: 4;
 }
 
 .container {
     width: 100%;
     height:70%;
-    /* background-color: ; */
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex: 1;
+    background-color: #FBEBD2;
 }
 
 .container div {
@@ -51,6 +115,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex: 1;
 }
 
 .btn-container {
