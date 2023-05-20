@@ -9,9 +9,12 @@ const buttons = document.querySelectorAll('.container>div');
 const wins = document.querySelector('.wins');
 const losses = document.querySelector('.losses');
 const memo = document.querySelector('.memo');
+const playAgainBtnContainer = document.querySelector('.btn-container');
+const playAgainBtn = document.querySelector('.button-19');
 
 // addEventListeners
 buttons.forEach(btn => btn.addEventListener('click',playRound));
+playAgainBtn.addEventListener('click',resetGame);
 
 // Function playRound. Each round it prompts an answer, generates a computer answer
 // and tests the answer.
@@ -40,13 +43,29 @@ function playRound(e) {
 function checkWin() {
     if (winsTotal === 3) {
         buttons.forEach(btn => btn.removeEventListener('click',playRound));
-        memo.innerText = "Great fight out there, you are the victor!"
+        memo.innerText = "Great fight out there, you are the victor!";
+        playAgainBtnContainer.classList.remove('hidden')
     } else if (lossesTotal === 3) {
         buttons.forEach(btn => btn.removeEventListener('click',playRound));
-        memo.innerText = "Good effort, we'll get'em next time \n -Soap"
+        memo.innerText = "Good effort, we'll get'em next time \n -Soap";
+        playAgainBtnContainer.classList.remove('hidden');
     }
-
 }
+
+// Reset game: clear the text in memo, restart winsTotal & lossesTotal,
+// get rid of button (add hidden class), add event listeners to buttons
+
+function resetGame() {
+    memo.innerText = "";
+    winsTotal = 0;
+    lossesTotal = 0;
+    playAgainBtnContainer.classList.add('hidden');
+    buttons.forEach(btn => btn.addEventListener('click',playRound));
+    losses.innerText = `Losses: ${lossesTotal}`;
+    wins.innerText = `Wins: ${winsTotal}`;
+}
+
+
 
 
 
