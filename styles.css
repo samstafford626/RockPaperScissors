@@ -101,11 +101,12 @@ body {
 .container div {
     height: 200px;
     width: 200px;
-    background-color: gray;
     padding: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50px;
+    
 }
 
 .results {
@@ -188,6 +189,24 @@ body {
 .button-19:disabled {
   cursor: auto;
 }
+
+.rock, .paper, .scissors {
+  background-size: contain;
+}
+
+.rock {
+  background-image: url(images/rock.png);
+}
+
+.paper {
+  background-image: url(images/paper.png);
+}
+
+.scissors {
+  background-image: url(images/scissors.png);
+}
+
+
 
 
 
